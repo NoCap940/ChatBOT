@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .chat-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .user-message {
+            text-align: right;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .other-message {
+            text-align: left;
+            background-color: #2196F3;
+            color: white;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: navy;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="chat-box user-message">
+            ¡Hola! ¿Cómo estás?
+        </div>
+
+        <div class="chat-box other-message">
+            ¡Hola! Estoy bien, ¿y tú?
+        </div>
+
+        <!-- Agregar más mensajes aquí -->
+
+        <div>
+            <input type="text" id="message" placeholder="Escribe un mensaje...">
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const messageInput = document.getElementById("message");
+            const message = messageInput.value;
+            if (message.trim() !== "") {
+                const chatBox = document.createElement("div");
+                chatBox.className = "chat-box user-message";
+                chatBox.textContent = message;
+                document.body.appendChild(chatBox);
+                messageInput.value = "";
+            }
+        }
+    </script>
+</body>
+</html>

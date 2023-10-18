@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejemplo de Ventana Emergente</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <button id="btnMostrar">Mostrar Ventana Emergente</button>
+
+    <!-- Ventana emergente (modal) -->
+    <div id="miModal" class="modal">
+        <div class="modal-contenido">
+            <span id="cerrarModal" class="cerrar">&times;</span>
+            <h2>Este es mi contenido de ventana emergente</h2>
+            <iframe src="http://10.0.0.38:8502" width="400" height="300" frameborder="4" ></iframe>
+            <p>Puedes agregar cualquier contenido aquí.</p>
+        </div>
+    </div>
+
+    <script src="ventanaEmergente.js"></script>
+</body>
+</html>

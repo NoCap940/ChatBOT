@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        /* Estilos para el chatbot */
+        #chatbot-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        #chat-messages {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        #user-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="chatbot-container">
+        <div id="chat-messages">
+            <!-- Aquí se mostrarán los mensajes de usuario y chatbot -->
+            <div class="message">¡Hola! Soy un chatbot. ¿En qué puedo ayudarte?</div>
+        </div>
+        <input type="text" id="user-input" placeholder="Escribe tu pregunta aquí...">
+        <button onclick="enviarMensaje()">Enviar</button>
+    </div>
+
+    <script>
+        function enviarMensaje() {
+            // Obtener el mensaje del usuario
+            var userInput = document.getElementById("user-input").value;
+
+            // Crear un nuevo elemento de mensaje de usuario
+            var userMessage = document.createElement("div");
+            userMessage.className = "message";
+            userMessage.textContent = userInput;
+
+            // Agregar el mensaje de usuario al contenedor de mensajes
+            document.getElementById("chat-messages").appendChild(userMessage);
+
+            // Enviar el mensaje del usuario al servidor y obtener la respuesta del chatbot
+            fetch("/tu-endpoint-de-consulta", {
+                method: "POST",
+                body: JSON.stringify({ input_usuario: userInput }),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Crear un nuevo elemento de mensaje de chatbot
+                var chatbotMessage = document.createElement("div");
+                chatbotMessage.className = "message";
+                chatbotMessage.textContent = data.respuesta;
+
+                // Agregar el mensaje del chatbot al contenedor de mensajes
+                document.getElementById("chat-messages").appendChild(chatbotMessage);
+            });
+
+            // Limpiar el campo de entrada del usuario
+            document.getElementById("user-input").value = "";
+        }
+    </script>
+</body>
+</html>

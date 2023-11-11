@@ -6,7 +6,7 @@ from langchain.agents import create_sql_agent
 from langchain.agents.agent_toolkits import SQLDatabaseToolkit
 from langchain_experimental.sql import SQLDatabaseChain
 
-db = SQLDatabase.from_uri("sqlite:///T1ChatBot.db")
+db = SQLDatabase.from_uri("sqlite:///gadget.db")
 
 # 2. Importar las APIs
 import a_env_vars

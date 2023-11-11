@@ -31,11 +31,7 @@ Dada una pregunta del usuario: (Responde y actua como un asistente amigable virt
 limitate a responder puntualmente
 -Por otro lado si el texto proporcionado por el usuario es mas una pregunta general o para saber detalles, descripcion o comparacion
 entre productos, detalles de envios, o del servicio. Busca en la base de datos en base a lo que pide el usuario y respondele, si no
-hay detalles a cerca de lo que se pide, simplemente responde que no tienes informacion disponible acerca del tema.
-
--Si el usuario hace una pregunta que tiene que ver con envios o se da a entender que si, busca la pregunta en la base de datos
-y busca en la tabla 'envios', busca si la pregunta se relaciona con el texto ingresado del usuario o la que mas se acerca a 
-coincir y responde con la respuesta que tiene esa pregunta
+hay detalles a cerca de lo que se pide, simplemente responde que no tienes informacion disponible acerca del tema
 #{question}
 """
 
